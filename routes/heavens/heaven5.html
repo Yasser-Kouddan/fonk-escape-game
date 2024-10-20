@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/blue-style.css">
+    <title>Heavens</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="title">
+            <p>Qui sont les 5 héros qui sauveront la planette?</p>
+        </div>
+        <form class="inputs" id="form">
+            <input type="text" name="first" id="first" placeholder="Premier nom">
+            <input type="text" name="second" id="second" placeholder="Deuxième nom">
+            <input type="text" name="third" id="third" placeholder="Troisième nom">
+            <input type="text" name="fourth" id="fourth" placeholder="Quatrième nom">
+            <input type="text" name="fifth" id="fifth" placeholder="Cinquième nom">
+        </form>
+        <div class="submit-container" onclick="myFunction()">
+            <div class="button-link">
+                <img src="/assets/sceau_cire.png" width="90" height="90" alt="Submit"/>
+                <div class="centered-text">submit</div>
+            </div>
+        </div>                                  
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p id="modalMessage"></p>
+        </div>
+    </div>
+    
+    <script src="/utils.js" defer></script>
+    <script defer>
+        function myFunction() {
+            // Get input values as an array
+            const inputValues = [
+                document.getElementById("first").value.trim().toLowerCase(),
+                document.getElementById("second").value.trim().toLowerCase(),
+                document.getElementById("third").value.trim().toLowerCase(),
+                document.getElementById("fourth").value.trim().toLowerCase(),
+                document.getElementById("fifth").value.trim().toLowerCase()
+            ];
+            
+            // Predefined valid values (names that are valid, regardless of order)
+            // const validValues = ["yasser", "younes", "mehdi", "bader", "hamza"];
+            const validValues = getPlayersRoom5();
+
+            // Sort both arrays and compare
+            const sortedInputValues = inputValues.sort();
+            const sortedValidValues = validValues.sort();
+            
+            // Prepare modal message
+            const modalMessage = document.getElementById("modalMessage");
+            const modal = document.getElementById("myModal");
+
+            // Compare the sorted arrays
+            if (JSON.stringify(sortedInputValues) === JSON.stringify(sortedValidValues)) {
+                modalMessage.innerText = 'Clé 3 : "harmonie"';
+                modal.style.display = "block"; // Show the modal
+            } else {
+                modalMessage.innerText = "Les noms ne correspondent pas à la liste attendue. Veuillez réessayer.";
+                modal.style.display = "block"; // Show the modal
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none"; // Close the modal
+        }
+
+        // Close modal when clicking anywhere outside of the modal
+        window.onclick = function(event) {
+            const modal = document.getElementById("myModal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

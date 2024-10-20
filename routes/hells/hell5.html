@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/red-style.css">
+    <title>Hell</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="gematria"></div>
+        <div class="liber"></div>
+        <form class="inputs" id="form">
+            <input type="text"placeholder="Key?" name="">
+            <a href="/routes/hells/hell5.html">retourn en arrière</a>
+        </form>
+    </div>
+
+    <script>
+        function myFunction() {
+            // Get input values as an array
+            const inputValues = [
+                document.getElementById("first").value.trim(),
+            ];
+            
+            // Predefined valid values (names that are valid, regardless of order)
+            const validValues = ["yasser", "younes", "mehdi", "bader", "hamza"];
+            
+            // Sort both arrays and compare
+            const sortedInputValues = inputValues.sort();
+            const sortedValidValues = validValues.sort();
+            
+            // Prepare modal message
+            const modalMessage = document.getElementById("modalMessage");
+            const modal = document.getElementById("myModal");
+
+            // Compare the sorted arrays
+            if (JSON.stringify(sortedInputValues) === JSON.stringify(sortedValidValues)) {
+                modalMessage.innerText = 'Clé 3 : "harmonie"';
+                modal.style.display = "block"; // Show the modal
+            } else {
+                modalMessage.innerText = "Les noms ne correspondent pas à la liste attendue. Veuillez réessayer.";
+                modal.style.display = "block"; // Show the modal
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none"; // Close the modal
+        }
+
+        // Close modal when clicking anywhere outside of the modal
+        window.onclick = function(event) {
+            const modal = document.getElementById("myModal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

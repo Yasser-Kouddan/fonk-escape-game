@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer with Password Stop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+
+        body{
+            background-image: url('/assets/city_ruins.jpg');
+            background-size: cover;
+            font-family: "Cinzel", serif; 
+            text-align: center;
+        }
+        .hidden {
+            display: none;
+        }
+        .input-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        .input-group input {
+            text-align: center;
+            font-size: 1.25rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 flex flex-col justify-center items-center h-screen">
+
+    <!-- Winning Sound Effect (hidden initially) -->
+    <audio id="winningSound">
+        <source src="/assets/victory.mp3" type="audio/mp3">
+    </audio>
+    <div class="bg-transparent p-10 rounded-lg shadow-lg text-center">
+        <h1 class="text-white text-4xl font-bold mb-4">Countdown Timer</h1>
+        <div id="countdown" class="text-5xl font-serif mb-10 text-red-500">01:00:00</div>
+
+        <h2 class="text-white text-2xl font-semibold mb-10">Enter Password to Stop the Timer</h2>
+
+        <div class="input-group my-5">
+            <input type="password" id="part1" maxlength="10" class="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-700" placeholder="clé 1">
+            <input type="password" id="part2" maxlength="10" class="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-700" placeholder="clé 2">
+            <input type="password" id="part3" maxlength="10" class="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-700" placeholder="clé 3">
+        </div>
+
+        <button onclick="checkPassword()" class="mt-4 bg-amber-900 text-white px-6 py-2 rounded-md hover:bg-amber-800">
+            Submit
+        </button>
+
+        <div id="message" class="hidden mt-4 text-red-500 text-lg font-semibold">Incorrect Password!</div>
+    </div>
+
+    <!-- Modal (hidden initially) -->
+    <div id="popupModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 hidden justify-center items-center">
+        <div class="bg-white p-6 rounded-lg max-w-md mx-auto">
+            <h2 class="text-2xl font-bold mb-4">Congratulations!</h2>
+            <p>Vous y êtes presque ! Regardez autour de vous pour trouver la clé 🗝️</p>
+            <img src="/assets/keys/key3.jpg" alt="find the key" class="mt-4 mb-6">
+            <button id="closeModal" class="px-4 py-2 bg-blue-500 text-white rounded-lg">Close</button>
+        </div>
+    </div>
+     <!-- Modal (hidden initially) -->
+
+    <script src="/utils.js" defer></script>
+    <script defer>
+        // Get the audio elements
+        const winningSound = document.getElementById('winningSound');
+
+        // Countdown timer function
+        let countdownElement = document.getElementById("countdown");
+        let time = 3600; // 1 hour in seconds
+
+        const timerInterval = setInterval(() => {
+            let hours = Math.floor(time / 3600);
+            let minutes = Math.floor((time % 3600) / 60);
+            let seconds = time % 60;
+
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            countdownElement.innerHTML = `${hours}:${minutes}:${seconds}`;
+            time--;
+
+            if (time < 0) {
+                clearInterval(timerInterval);
+                countdownElement.innerHTML = "00:00:00";
+            }
+        }, 1000);
+
+        // Password check function
+        function checkPassword() {
+            const part1 = document.getElementById("part1").value.toLowerCase();
+            const part2 = document.getElementById("part2").value.toLowerCase();
+            const part3 = document.getElementById("part3").value.toLowerCase();
+
+            const correctPassword = getKeys()
+
+            if (part1 === correctPassword[0] && part2 === correctPassword[1] && part3 === correctPassword[2]) {
+                clearInterval(timerInterval);
+                countdownElement.innerHTML = "Stopped!";
+                winningSound.play(); // Play the winning sound effect
+                document.getElementById("message").classList.add("hidden");
+                document.getElementById("popupModal").classList.remove("hidden");
+                setTimeout
+            } else {
+                document.getElementById("message").classList.remove("hidden");
+            }
+        }
+
+        // Close modal when the close button is clicked
+        document.getElementById("closeModal").addEventListener("click", function() {
+            document.getElementById("popupModal").classList.add("hidden");
+        });
+    </script>
+</body>
+</html>
