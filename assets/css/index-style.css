@@ -31,6 +31,7 @@ body{
     height: 50%;
     text-align: center;
     align-content: center;
+    justify-self: flex-end;
     background-image: url("../images/view-wildfire-burning-nature_1.jpg");
     color: rgba(46, 13, 6, 0.811);
     background-size: cover;
@@ -62,7 +63,7 @@ body{
 }
 
 .or{
-    position: absolute;
+    position: fixed;
     z-index: 10000;
     align-content: center;
     top: 49%;
@@ -77,6 +78,8 @@ body{
     padding:15px ;
     text-align: center;
 }
+
+
 
 
 
