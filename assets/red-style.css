@@ -24,7 +24,7 @@ body{
 .liber{
     width: 100%;
     height: 50%;
-    background-image:url("/assets/liber.png") ;
+    background-image:url("./assets/liber.png") ;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -33,7 +33,7 @@ body{
 .gematria{
     width: 100%;
     height: 50%;
-    background-image:url("/assets/Gematria.jpg") ;
+    background-image:url("./assets/Gematria.jpg") ;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;

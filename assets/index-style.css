@@ -31,7 +31,7 @@ body{
     height: 50%;
     text-align: center;
     align-content: center;
-    background-image: url("/assets/view-wildfire-burning-nature_1.jpg");
+    background-image: url("./assets/view-wildfire-burning-nature_1.jpg");
     color: rgba(46, 13, 6, 0.811);
     background-size: cover;
     background-repeat: no-repeat;
@@ -48,7 +48,7 @@ body{
     text-align: center;
     align-content:center ;
     background: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
-    background-image: url("/assets/white-cloud-blue-sky-sea.jpg");
+    background-image: url("./assets/white-cloud-blue-sky-sea.jpg");
     background-size: cover;
     background-repeat:no-repeat ;
     font-family: "Concert One", sans-serif;

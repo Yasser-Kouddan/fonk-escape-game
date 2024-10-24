@@ -24,7 +24,7 @@ body{
     align-items: center;
     height: 70%;
     width: 100%;
-    background-image: url('/assets/parchement.png');
+    background-image: url('./assets/parchement.png');
     background-size: cover;
     background-position: center;
     
