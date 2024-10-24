@@ -1,5 +1,5 @@
 // Import the utility functions
-const utils = require('./utils');
+const utils = require('../../utils');
 
 // Handle Room Form Submissions
 document.getElementById('room1Form').addEventListener('submit', function(event) {

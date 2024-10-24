@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/blue-style.css">
+    <link rel="stylesheet" href="../../assets/css/blue-style.css">
     <title>Heavens</title>
 </head>
 <body>
@@ -14,13 +14,13 @@
         <form class="inputs" id="form">
             <input type="text" name="first" id="first" placeholder="Premier nom">
             <input type="text" name="second" id="second" placeholder="Deuxième nom">
-            <!-- <input type="text" name="third" id="third" placeholder="Troisième nom">
+            <input type="text" name="third" id="third" placeholder="Troisième nom">
             <input type="text" name="fourth" id="fourth" placeholder="Quatrième nom">
-            <input type="text" name="fifth" id="fifth" placeholder="Cinquième nom"> -->
+            <input type="text" name="fifth" id="fifth" placeholder="Cinquième nom">
         </form>
         <div class="submit-container" onclick="myFunction()">
             <div class="button-link">
-                <img src="./assets/sceau_cire.png" width="90" height="90" alt="Submit"/>
+                <img src="../../assets/images/sceau_cire.png" width="90" height="90" alt="Submit"/>
                 <div class="centered-text">submit</div>
             </div>
         </div>                                  
@@ -33,22 +33,22 @@
             <p id="modalMessage"></p>
         </div>
     </div>
-    <script src="/utils.js" defer></script>
+    <script src="../../utils.js" defer></script>
     <script defer>
         function myFunction() {
             // Get input values as an array
             const inputValues = [
                 document.getElementById("first").value.trim().toLowerCase(),
                 document.getElementById("second").value.trim().toLowerCase(),
-                // document.getElementById("third").value.trim().toLowerCase(),
-                // document.getElementById("fourth").value.trim().toLowerCase(),
-                // document.getElementById("fifth").value.trim().toLowerCase()
+                document.getElementById("third").value.trim().toLowerCase(),
+                document.getElementById("fourth").value.trim().toLowerCase(),
+                document.getElementById("fifth").value.trim().toLowerCase()
             ];
             
             // Predefined valid values (names that are valid, regardless of order)
             // const validValues = ["yasser", "younes", "mehdi", "bader", "hamza"];
             const validValues = getPlayersRoom1();
-            
+
             // Sort both arrays and compare
             const sortedInputValues = inputValues.sort();
             const sortedValidValues = validValues.sort();

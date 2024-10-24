@@ -1,7 +1,7 @@
 // utils.js
 
 const jsonData = {
-    "room1": ["Mohammed", "Simo"],
+    "room1": ["player1", "player2", "player3", "player4", "player5"],
     "room2": ["player1", "player2", "player3", "player4", "player5"],
     "room3": ["player1", "player2", "player3", "player4", "player5"],
     "room4": ["player1", "player2", "player3", "player4", "player5"],
